@@ -1,0 +1,267 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    margin: auto;
+    padding: 40px;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header and Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: #fff;
+    background-color: #333;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.logo {
+    font-size: 2em;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    height: 0.2rem;
+    background: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links a {
+    color: #fff;
+}
+
+/* Hero Section */
+
+.hero {
+    background-color:#000;
+    height: 42vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-button {
+    display: inline-block;
+    padding: 1em 3em;
+    background: #333;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    border-radius: 0.3em;
+}
+
+.more-button:hover {
+    background: #fff;
+    color: #333;
+    border-radius: 0.5em;
+}
+
+/* Content Section */
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 30px;
+    padding: 40px;
+}
+
+.box {
+    padding: 1em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+    background: #FF6347;
+    transition: all 0.3s ease-in-out;
+}
+
+.box img {
+    width: 200px;
+    transition: all 0.3s ease-in-out;
+}
+
+.box .text {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    text-align: center;
+    color: #fff;
+}
+
+.box:hover img {
+    transform: scale(1.1);
+}
+
+.box h2, .box p {
+    z-index: 2;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+.box:hover h2, .box:hover p {
+    color: #fff;
+}
+
+.box:hover .text h2,
+.box:hover .text p {
+    color: #000;
+}
+
+/* For larger boxes */
+.box.large {
+    grid-row: span 2;
+}
+
+/* For extra large boxes */
+.box.xl {
+    flex: 3 3 900px;
+}
+
+/* Footer and Contact Form */
+
+footer {
+    background: #fafafa;
+    padding: 40px;
+    text-align: center;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type='text'],
+.contact-form input[type='email'],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-form input[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #FF6347; /* Accent color */
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contact-form input[type='submit']:hover {
+    background: #fff;
+    color: #FF6347; /* Accent color */
+}
+
+/* Responsive Styles */
+
+@media (max-width: 900px) {
+    .box {
+        flex: 0 1 calc(50% - 30px); /* Two boxes per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        padding: 2em;
+        gap:2em;
+        position: absolute;
+        width: 100%;
+        top: 80px;
+        left: 0;
+        background: #333;
+    }
+    
+    #nav-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .box {
+        flex: 1 0 100%; /* Single column layout */
+    }
+}
